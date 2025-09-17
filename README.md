@@ -1,68 +1,68 @@
 # testing-sessions
 
-A simple Node.js server for testing sessions.
+Ein ziemlich cooler Node.js-Server für epische Testsitzungen (garantiert ohne Sauerkraut, aber mit extra Effizienz!).
 
-## Features
+## Funktionen
 
-- Basic HTTP server with multiple endpoints
-- JSON API responses
-- HTML home page
-- CORS support
-- Graceful shutdown handling
-- Error handling with 404 responses
+- Grundlegender HTTP-Server mit mehreren Endpunkten (mehr als ein Schweizer Taschenmesser!)
+- JSON-API-Antworten (frischer als Brezeln am Morgen)
+- HTML-Startseite (hübscher als ein Biergarten im Sommer)
+- CORS-Unterstützung (öffnet Türen wie ein freundlicher Türsteher)
+- Elegante Shutdown-Behandlung (verabschiedet sich höflicher als ein Bayer beim Oktoberfest)
+- Fehlerbehandlung mit 404-Antworten (findet verlorene Pfade besser als ein GPS im Schwarzwald)
 
-## Available Endpoints
+## Verfügbare Endpunkte
 
-- `GET /` - Home page with server information
-- `GET /api/status` - Server status information
-- `GET /api/time` - Current server time
+- `GET /` - Startseite mit Serverinformationen (die digitale Visitenkarte)
+- `GET /api/status` - Serverstatusinformationen (Gesundheitscheck für Computer)
+- `GET /api/time` - Aktuelle Serverzeit (präziser als eine Kuckucksuhr!)
 
-## Getting Started
+## Erste Schritte
 
-### Prerequisites
+### Voraussetzungen
 
-- Node.js (v14 or higher)
-- npm
+- Node.js (v14 oder höher) - so alt wie ein guter Wein
+- npm (kommt normalerweise mit Node.js, wie Senf zur Bratwurst)
 
 ### Installation
 
-1. Clone this repository
-2. Install dependencies (none required for basic functionality)
+1. Dieses Repository klonen (kopieren wie ein fleißiger Schüler)
+2. Abhängigkeiten installieren (keine für grundlegende Funktionalität erforderlich - so minimalistisch wie ein IKEA-Möbelstück)
 
-### Running the Server
+### Server starten
 
 ```bash
-# Start the server
+# Server starten (zum Leben erwecken!)
 npm start
 
-# Or run directly
+# Oder direkt ausführen (der Mut zur Direktheit)
 node server.js
 ```
 
-The server will start on `http://localhost:3000` by default. You can set a custom port using the `PORT` environment variable:
+Der Server startet standardmäßig auf `http://localhost:3000` (wie ein Schweizer Uhrwerk). Sie können einen benutzerdefinierten Port mit der Umgebungsvariable `PORT` festlegen:
 
 ```bash
 PORT=8080 npm start
 ```
 
-### Testing
+### Testen
 
-You can test the server using curl or any HTTP client:
+Sie können den Server mit curl oder einem beliebigen HTTP-Client testen (experimentieren Sie wie ein verrückter Wissenschaftler):
 
 ```bash
-# Test the home page
+# Startseite testen (Hauptgericht probieren)
 curl http://localhost:3000/
 
-# Test the status endpoint
+# Status-Endpunkt testen (Puls fühlen)
 curl http://localhost:3000/api/status
 
-# Test the time endpoint
+# Zeit-Endpunkt testen (Zeit ist Geld, wie die Banker sagen)
 curl http://localhost:3000/api/time
 ```
 
-## Server Features
+## Server-Funktionen
 
-- **CORS Enabled**: The server includes CORS headers for cross-origin requests
-- **Graceful Shutdown**: Handles SIGTERM and SIGINT signals for clean shutdown
-- **JSON Responses**: API endpoints return properly formatted JSON
-- **Error Handling**: Returns 404 for unknown routes with helpful error messages
+- **CORS aktiviert**: Der Server enthält CORS-Header für Cross-Origin-Anfragen (internationaler als ein Diplomat)
+- **Elegantes Herunterfahren**: Behandelt SIGTERM- und SIGINT-Signale für sauberes Herunterfahren (macht Schluss wie ein Gentleman)
+- **JSON-Antworten**: API-Endpunkte geben ordnungsgemäß formatierte JSON zurück (strukturierter als deutsche Bürokratie)
+- **Fehlerbehandlung**: Gibt 404 für unbekannte Routen mit hilfreichen Fehlermeldungen zurück (hilfsbereit wie ein bayerischer Wanderführer)
