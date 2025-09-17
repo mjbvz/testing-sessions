@@ -30,13 +30,13 @@ const server = http.createServer((req, res) => {
           <title>Testing Sessions Server</title>
         </head>
         <body>
-          <h1>Welcome to Testing Sessions Server</h1>
-          <p>This is a simple Node.js server.</p>
-          <p>Available endpoints:</p>
+          <h1>Willkommen zum Testing Sessions Server</h1>
+          <p>Dies ist ein einfacher Node.js-Server.</p>
+          <p>Verfügbare Endpunkte:</p>
           <ul>
-            <li><a href="/">/ - This home page</a></li>
-            <li><a href="/api/status">/api/status - Server status</a></li>
-            <li><a href="/api/time">/api/time - Current server time</a></li>
+            <li><a href="/">/ - Diese Startseite</a></li>
+            <li><a href="/api/status">/api/status - Serverstatus</a></li>
+            <li><a href="/api/time">/api/time - Aktuelle Serverzeit</a></li>
           </ul>
         </body>
       </html>
@@ -44,8 +44,8 @@ const server = http.createServer((req, res) => {
   } else if (path === '/api/status' && method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
-      status: 'running',
-      message: 'Server is working correctly',
+      status: 'läuft',
+      message: 'Server arbeitet ordnungsgemäß',
       timestamp: new Date().toISOString()
     }));
   } else if (path === '/api/time' && method === 'GET') {
@@ -57,35 +57,35 @@ const server = http.createServer((req, res) => {
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
-      error: 'Not Found',
-      message: `Path ${path} not found`
+      error: 'Nicht gefunden',
+      message: `Pfad ${path} nicht gefunden`
     }));
   }
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  console.log('SIGTERM received, shutting down gracefully...');
+  console.log('SIGTERM empfangen, fahre elegant herunter...');
   server.close(() => {
-    console.log('Server closed');
+    console.log('Server geschlossen');
     process.exit(0);
   });
 });
 
 process.on('SIGINT', () => {
-  console.log('SIGINT received, shutting down gracefully...');
+  console.log('SIGINT empfangen, fahre elegant herunter...');
   server.close(() => {
-    console.log('Server closed');
+    console.log('Server geschlossen');
     process.exit(0);
   });
 });
 
 server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Available endpoints:`);
-  console.log(`  GET /           - Home page`);
-  console.log(`  GET /api/status - Server status`);
-  console.log(`  GET /api/time   - Current time`);
+  console.log(`Server läuft auf http://localhost:${PORT}`);
+  console.log(`Verfügbare Endpunkte:`);
+  console.log(`  GET /           - Startseite`);
+  console.log(`  GET /api/status - Serverstatus`);
+  console.log(`  GET /api/time   - Aktuelle Zeit`);
 });
 
 module.exports = server;

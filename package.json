@@ -1,7 +1,7 @@
 {
   "name": "testing-sessions",
   "version": "1.0.0",
-  "description": "A simple Node.js server for testing sessions",
+  "description": "Ein einfacher Node.js-Server für Testsitzungen",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

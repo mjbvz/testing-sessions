@@ -1,68 +1,68 @@
 # testing-sessions
 
-A simple Node.js server for testing sessions.
+Ein einfacher Node.js-Server für Testsitzungen.
 
-## Features
+## Funktionen
 
-- Basic HTTP server with multiple endpoints
-- JSON API responses
-- HTML home page
-- CORS support
-- Graceful shutdown handling
-- Error handling with 404 responses
+- Grundlegender HTTP-Server mit mehreren Endpunkten
+- JSON-API-Antworten
+- HTML-Startseite
+- CORS-Unterstützung
+- Elegante Shutdown-Behandlung
+- Fehlerbehandlung mit 404-Antworten
 
-## Available Endpoints
+## Verfügbare Endpunkte
 
-- `GET /` - Home page with server information
-- `GET /api/status` - Server status information
-- `GET /api/time` - Current server time
+- `GET /` - Startseite mit Serverinformationen
+- `GET /api/status` - Serverstatusinformationen
+- `GET /api/time` - Aktuelle Serverzeit
 
-## Getting Started
+## Erste Schritte
 
-### Prerequisites
+### Voraussetzungen
 
-- Node.js (v14 or higher)
+- Node.js (v14 oder höher)
 - npm
 
 ### Installation
 
-1. Clone this repository
-2. Install dependencies (none required for basic functionality)
+1. Dieses Repository klonen
+2. Abhängigkeiten installieren (keine für grundlegende Funktionalität erforderlich)
 
-### Running the Server
+### Server starten
 
 ```bash
-# Start the server
+# Server starten
 npm start
 
-# Or run directly
+# Oder direkt ausführen
 node server.js
 ```
 
-The server will start on `http://localhost:3000` by default. You can set a custom port using the `PORT` environment variable:
+Der Server startet standardmäßig auf `http://localhost:3000`. Sie können einen benutzerdefinierten Port mit der Umgebungsvariable `PORT` festlegen:
 
 ```bash
 PORT=8080 npm start
 ```
 
-### Testing
+### Testen
 
-You can test the server using curl or any HTTP client:
+Sie können den Server mit curl oder einem beliebigen HTTP-Client testen:
 
 ```bash
-# Test the home page
+# Startseite testen
 curl http://localhost:3000/
 
-# Test the status endpoint
+# Status-Endpunkt testen
 curl http://localhost:3000/api/status
 
-# Test the time endpoint
+# Zeit-Endpunkt testen
 curl http://localhost:3000/api/time
 ```
 
-## Server Features
+## Server-Funktionen
 
-- **CORS Enabled**: The server includes CORS headers for cross-origin requests
-- **Graceful Shutdown**: Handles SIGTERM and SIGINT signals for clean shutdown
-- **JSON Responses**: API endpoints return properly formatted JSON
-- **Error Handling**: Returns 404 for unknown routes with helpful error messages
+- **CORS aktiviert**: Der Server enthält CORS-Header für Cross-Origin-Anfragen
+- **Elegantes Herunterfahren**: Behandelt SIGTERM- und SIGINT-Signale für sauberes Herunterfahren
+- **JSON-Antworten**: API-Endpunkte geben ordnungsgemäß formatierte JSON zurück
+- **Fehlerbehandlung**: Gibt 404 für unbekannte Routen mit hilfreichen Fehlermeldungen zurück
