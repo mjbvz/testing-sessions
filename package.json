@@ -1,14 +1,22 @@
 {
-  "name": "testing-sessions",
+  "name": "test-sitzig-alpserver",
   "version": "1.0.0",
-  "description": "A simple Node.js server for testing sessions",
+  "description": "E simpels Node.js Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am Grase frässe! 🐄🏔️",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Fähler: ke Test spezifiziert (wie Kuh ohni Glogge)\" && exit 1"
   },
-  "keywords": ["nodejs", "server", "testing"],
+  "keywords": [
+    "nodejs",
+    "server",
+    "teste",
+    "schwiizerdütsch",
+    "alp",
+    "küeh",
+    "chäs"
+  ],
   "author": "",
   "license": "ISC"
 }
