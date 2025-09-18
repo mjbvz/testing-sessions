@@ -16,6 +16,8 @@ A simple Node.js server for testing sessions.
 - `GET /` - Home page with server information
 - `GET /api/status` - Server status information
 - `GET /api/time` - Current server time
+- `GET /api/info` - Detailed server information including all endpoints
+- `GET /api/test/:code` - Test endpoint for different HTTP status codes (useful for testing)
 
 ## Getting Started
 
@@ -58,6 +60,14 @@ curl http://localhost:3000/api/status
 
 # Test the time endpoint
 curl http://localhost:3000/api/time
+
+# Get detailed server information
+curl http://localhost:3000/api/info
+
+# Test different HTTP status codes (useful for testing client error handling)
+curl http://localhost:3000/api/test/200
+curl http://localhost:3000/api/test/404
+curl http://localhost:3000/api/test/500
 ```
 
 ## Server Features
@@ -66,3 +76,5 @@ curl http://localhost:3000/api/time
 - **Graceful Shutdown**: Handles SIGTERM and SIGINT signals for clean shutdown
 - **JSON Responses**: API endpoints return properly formatted JSON
 - **Error Handling**: Returns 404 for unknown routes with helpful error messages
+- **Local Development**: Shows actual server URL with correct port for easy local testing
+- **Testing Endpoints**: Includes `/api/test/:code` for testing different HTTP status codes
