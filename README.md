@@ -16,6 +16,11 @@ A simple Node.js server for testing sessions.
 - `GET /` - Home page with server information
 - `GET /api/status` - Server status information
 - `GET /api/time` - Current server time
+- `GET /api/hello` - Hello message (optional `?name=parameter`)
+- `POST /api/echo` - Echo POST request data back
+- `GET /api/random` - Random data generation (number and UUID)
+- `GET /api/headers` - Request headers inspection
+- `GET /health` - Health check with uptime and memory usage
 
 ## Getting Started
 
@@ -58,6 +63,22 @@ curl http://localhost:3000/api/status
 
 # Test the time endpoint
 curl http://localhost:3000/api/time
+
+# Test the hello endpoint
+curl http://localhost:3000/api/hello
+curl "http://localhost:3000/api/hello?name=YourName"
+
+# Test the echo endpoint (POST)
+curl -X POST -d "Hello World" http://localhost:3000/api/echo
+
+# Test the random data endpoint
+curl http://localhost:3000/api/random
+
+# Test the headers inspection endpoint
+curl http://localhost:3000/api/headers
+
+# Test the health check endpoint
+curl http://localhost:3000/health
 ```
 
 ## Server Features

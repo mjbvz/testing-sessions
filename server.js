@@ -37,6 +37,11 @@ const server = http.createServer((req, res) => {
             <li><a href="/">/ - This home page</a></li>
             <li><a href="/api/status">/api/status - Server status</a></li>
             <li><a href="/api/time">/api/time - Current server time</a></li>
+            <li><a href="/api/hello">/api/hello - Hello message (GET, optional ?name=parameter)</a></li>
+            <li><a href="/api/random">/api/random - Random data generation</a></li>
+            <li><a href="/api/headers">/api/headers - Request headers inspection</a></li>
+            <li><a href="/health">/health - Health check endpoint</a></li>
+            <li>/api/echo - Echo POST requests back (POST only)</li>
           </ul>
         </body>
       </html>
@@ -53,6 +58,49 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({
       time: new Date().toISOString(),
       timestamp: Date.now()
+    }));
+  } else if (path === '/api/hello' && method === 'GET') {
+    const name = parsedUrl.query.name || 'World';
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      message: `Hello, ${name}!`,
+      timestamp: new Date().toISOString()
+    }));
+  } else if (path === '/api/echo' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        echo: body,
+        received_at: new Date().toISOString(),
+        content_length: body.length
+      }));
+    });
+  } else if (path === '/api/random' && method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      random_number: Math.floor(Math.random() * 1000),
+      random_uuid: require('crypto').randomUUID(),
+      timestamp: new Date().toISOString()
+    }));
+  } else if (path === '/api/headers' && method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      headers: req.headers,
+      method: req.method,
+      url: req.url,
+      timestamp: new Date().toISOString()
+    }));
+  } else if (path === '/health' && method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      status: 'healthy',
+      uptime: process.uptime(),
+      memory: process.memoryUsage(),
+      timestamp: new Date().toISOString()
     }));
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
@@ -86,6 +134,11 @@ server.listen(PORT, () => {
   console.log(`  GET /           - Home page`);
   console.log(`  GET /api/status - Server status`);
   console.log(`  GET /api/time   - Current time`);
+  console.log(`  GET /api/hello  - Hello message (optional ?name=parameter)`);
+  console.log(`  POST /api/echo  - Echo POST data back`);
+  console.log(`  GET /api/random - Random data generation`);
+  console.log(`  GET /api/headers- Request headers inspection`);
+  console.log(`  GET /health     - Health check`);
 });
 
 module.exports = server;
