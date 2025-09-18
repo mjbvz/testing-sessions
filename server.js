@@ -54,6 +54,37 @@ const server = http.createServer((req, res) => {
       time: new Date().toISOString(),
       timestamp: Date.now()
     }));
+  } else if (path === '/api/hidden' && method === 'GET') {
+    // Very hidden easter egg - requires specific conditions
+    const userAgent = req.headers['user-agent'] || '';
+    const secretParam = parsedUrl.query.secret;
+    const konamiCode = 'up-up-down-down-left-right-left-right-b-a';
+    
+    if (userAgent.includes('KonamiCode') && secretParam === konamiCode) {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        message: '🎉 Congratulations! You found the hidden easter egg! 🥚',
+        achievement: 'Secret Agent',
+        hint: 'The Konami Code never gets old...',
+        bonus: {
+          ascii_art: [
+            '    ╔══════════════════╗',
+            '    ║  EASTER EGG FOUND ║',
+            '    ╚══════════════════╝',
+            '        🐰    🥚    🌟'
+          ],
+          unlocked_at: new Date().toISOString(),
+          secret_level: 'Maximum'
+        }
+      }));
+    } else {
+      // Respond like any other 404 to hide the easter egg
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        error: 'Not Found',
+        message: `Path ${path} not found`
+      }));
+    }
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
