@@ -1,6 +1,6 @@
 # testing-sessions
 
-A simple Node.js server for testing sessions.
+A simple Ruby server for testing sessions.
 
 ## Features
 
@@ -21,28 +21,33 @@ A simple Node.js server for testing sessions.
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm
+- Ruby (v3.0 or higher)
+- Bundler gem
 
 ### Installation
 
 1. Clone this repository
-2. Install dependencies (none required for basic functionality)
+2. Install dependencies:
+
+```bash
+gem install bundler
+bundle install
+```
 
 ### Running the Server
 
 ```bash
 # Start the server
-npm start
+ruby server.rb
 
-# Or run directly
-node server.js
+# Or using npm scripts (if you prefer)
+npm start
 ```
 
-The server will start on `http://localhost:3000` by default. You can set a custom port using the `PORT` environment variable:
+The server will start on `http://localhost:4567` by default (Sinatra's default port). You can set a custom port using the `PORT` environment variable:
 
 ```bash
-PORT=8080 npm start
+PORT=3000 ruby server.rb
 ```
 
 ### Testing
@@ -51,13 +56,13 @@ You can test the server using curl or any HTTP client:
 
 ```bash
 # Test the home page
-curl http://localhost:3000/
+curl http://localhost:4567/
 
 # Test the status endpoint
-curl http://localhost:3000/api/status
+curl http://localhost:4567/api/status
 
 # Test the time endpoint
-curl http://localhost:3000/api/time
+curl http://localhost:4567/api/time
 ```
 
 ## Server Features
@@ -66,3 +71,8 @@ curl http://localhost:3000/api/time
 - **Graceful Shutdown**: Handles SIGTERM and SIGINT signals for clean shutdown
 - **JSON Responses**: API endpoints return properly formatted JSON
 - **Error Handling**: Returns 404 for unknown routes with helpful error messages
+
+## Ruby Dependencies
+
+- **Sinatra**: Lightweight web framework for Ruby
+- **JSON**: Built-in JSON support for API responses
