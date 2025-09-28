@@ -35,7 +35,10 @@ E simpels Ruby Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am Gras
 # Server starte (wie Alphorn blase)
 ruby server.rb
 
-# Oder mit Ruby ausführe (wie Kuh melke)
+# Oder mit npm (für Kompatibilität)
+npm start
+
+# Oder direkt ausführe (wie Kuh melke)
 ./server.rb
 ```
 
@@ -44,6 +47,8 @@ Dr Server startet per default uf `http://localhost:3000` (wie e gmüetlichi Berg
 ```bash
 PORT=8080 ruby server.rb
 ```
+
+**Kompatibilität:** Dr alte Node.js Server isch no vorhanden als `server.js` und cha mit `npm run start-nodejs` gstartet werde.
 
 ### Teste (wie Chäs probiere)
 

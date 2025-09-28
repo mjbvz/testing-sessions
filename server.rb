@@ -88,7 +88,7 @@ server.mount_proc '/' do |req, res|
     res.body = {
       error: 'Verlaufe wie ne Kuh im Näbel',
       message: "Pfad #{req.path} nid gfunde - vilicht ischs hinder dr Alp versteckt? 🏔️🐄",
-      suggestion: 'Probier emol e andere Wäg, wie K-üeh wo dr richtige Pfad sueche!',
+      suggestion: 'Probier emol e andere Wäg, wie Küeh wo dr richtige Pfad sueche!',
       muh: 'Muuuuh? 🐄'
     }.to_json
   end
