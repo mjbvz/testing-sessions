@@ -1,21 +1,23 @@
 {
   "name": "test-sitzig-alpserver",
   "version": "1.0.0",
-  "description": "E simpels Node.js Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am Grase frässe! 🐄🏔️",
-  "main": "server.js",
+  "description": "E simpels Ruby Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am Grase frässe! 🐄🏔️ (Rewritten from Node.js to Ruby)",
+  "main": "server.rb",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
+    "start": "ruby server.rb",
+    "dev": "ruby server.rb",
+    "start-nodejs": "node server.js",
     "test": "echo \"Fähler: ke Test spezifiziert (wie Kuh ohni Glogge)\" && exit 1"
   },
   "keywords": [
-    "nodejs",
+    "ruby",
     "server",
     "teste",
     "schwiizerdütsch",
     "alp",
     "küeh",
-    "chäs"
+    "chäs",
+    "webrick"
   ],
   "author": "",
   "license": "ISC"

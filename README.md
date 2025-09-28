@@ -1,7 +1,7 @@
 ````markdown
 # test-sitzig 🐄🏔️
 
-E simpels Node.js Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am Grase frässe!
+E simpels Ruby Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am Grase frässe!
 
 ## Funktione (so guet wie frische Alpchäs)
 
@@ -22,28 +22,27 @@ E simpels Node.js Server für Test-Sitzige uf dr Alp, so schnell wie ne Kuh am G
 
 ### Vorussetzige
 
-- Node.js (v14 oder höcher)
-- npm
+- Ruby (v2.7 oder höcher)
 
 ### Installatione (so eifach wie Chäs mache)
 
 1. Dis Repository klone (wie ne Kuh uf d'Alp bringe)
-2. Abhängigkeite installiere (keini nötig für basis Funktionalität - so eifach wie Gras frässe)
+2. Keini Abhängigkeite nötig - Ruby hets alles scho dabei (wie Kuh wo alles cha)
 
 ### Server laufe laa (wie Küeh uf d'Weide)
 
 ```bash
 # Server starte (wie Alphorn blase)
-npm start
+ruby server.rb
 
-# Oder direkt laufe laa (wie Kuh melke)
-node server.js
+# Oder mit Ruby ausführe (wie Kuh melke)
+./server.rb
 ```
 
 Dr Server startet per default uf `http://localhost:3000` (wie e gmüetlichi Berghütte). Du chasch e custom Port setze mit dr `PORT` Umgäbigs-Variable (wie verschiedeni Alpe):
 
 ```bash
-PORT=8080 npm start
+PORT=8080 ruby server.rb
 ```
 
 ### Teste (wie Chäs probiere)
