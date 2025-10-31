@@ -1,6 +1,6 @@
 # testing-sessions
 
-A simple Node.js server for testing sessions.
+A simple Rust server for testing sessions.
 
 ## Features
 
@@ -21,28 +21,29 @@ A simple Node.js server for testing sessions.
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm
+- Rust (1.70 or higher)
+- Cargo
 
 ### Installation
 
 1. Clone this repository
-2. Install dependencies (none required for basic functionality)
+2. Dependencies will be automatically downloaded on first build
 
 ### Running the Server
 
 ```bash
-# Start the server
-npm start
+# Build and start the server
+cargo run
 
-# Or run directly
-node server.js
+# Or build in release mode for better performance
+cargo build --release
+./target/release/testing-sessions
 ```
 
 The server will start on `http://localhost:3000` by default. You can set a custom port using the `PORT` environment variable:
 
 ```bash
-PORT=8080 npm start
+PORT=8080 cargo run
 ```
 
 ### Testing
@@ -66,3 +67,13 @@ curl http://localhost:3000/api/time
 - **Graceful Shutdown**: Handles SIGTERM and SIGINT signals for clean shutdown
 - **JSON Responses**: API endpoints return properly formatted JSON
 - **Error Handling**: Returns 404 for unknown routes with helpful error messages
+
+## Building for Production
+
+To build an optimized release binary:
+
+```bash
+cargo build --release
+```
+
+The binary will be available at `target/release/testing-sessions`.
