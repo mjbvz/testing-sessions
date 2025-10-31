@@ -1,5 +1,6 @@
 const http = require('http');
 const url = require('url');
+const { binarySearchIterative, binarySearchWithSteps } = require('./binarySearch');
 
 const PORT = process.env.PORT || 3000;
 
@@ -37,6 +38,7 @@ const server = http.createServer((req, res) => {
             <li><a href="/">/ - This home page</a></li>
             <li><a href="/api/status">/api/status - Server status</a></li>
             <li><a href="/api/time">/api/time - Current server time</a></li>
+            <li><a href="/api/binary-search?array=1,3,5,7,9,11,13,15,17,19&target=7">/api/binary-search - Binary search demo</a></li>
           </ul>
         </body>
       </html>
@@ -54,6 +56,44 @@ const server = http.createServer((req, res) => {
       time: new Date().toISOString(),
       timestamp: Date.now()
     }));
+  } else if (path === '/api/binary-search' && method === 'GET') {
+    // Binary search endpoint
+    const query = parsedUrl.query;
+    
+    try {
+      // Parse array parameter
+      const arrayParam = query.array || '1,3,5,7,9,11,13,15,17,19';
+      const arr = arrayParam.split(',').map(num => parseInt(num.trim(), 10));
+      
+      // Parse target parameter
+      const target = parseInt(query.target || '7', 10);
+      
+      // Validate inputs
+      if (arr.some(isNaN)) {
+        throw new Error('Invalid array values');
+      }
+      if (isNaN(target)) {
+        throw new Error('Invalid target value');
+      }
+      
+      // Perform binary search with steps
+      const result = binarySearchWithSteps(arr, target);
+      
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        array: arr,
+        target: target,
+        result: result,
+        usage: 'Add query parameters: ?array=1,2,3,4,5&target=3'
+      }));
+    } catch (error) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({
+        error: 'Bad Request',
+        message: error.message,
+        usage: 'Example: /api/binary-search?array=1,2,3,4,5&target=3'
+      }));
+    }
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
@@ -83,9 +123,10 @@ process.on('SIGINT', () => {
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
   console.log(`Available endpoints:`);
-  console.log(`  GET /           - Home page`);
-  console.log(`  GET /api/status - Server status`);
-  console.log(`  GET /api/time   - Current time`);
+  console.log(`  GET /                  - Home page`);
+  console.log(`  GET /api/status        - Server status`);
+  console.log(`  GET /api/time          - Current time`);
+  console.log(`  GET /api/binary-search - Binary search demo`);
 });
 
 module.exports = server;
