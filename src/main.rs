@@ -1,23 +1,23 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Result, middleware};
 use actix_cors::Cors;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 use chrono::Utc;
 use std::env;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize)]
 struct StatusResponse {
     status: String,
     message: String,
     timestamp: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize)]
 struct TimeResponse {
     time: String,
     timestamp: i64,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize)]
 struct ErrorResponse {
     error: String,
     message: String,
