@@ -123,6 +123,33 @@ function binarySearchWithSteps(arr, target) {
   };
 }
 
+/**
+ * Find a user by ID in a sorted array of user objects
+ * @param {Array<{id: number}>} users - Sorted array of user objects with id property
+ * @param {number} targetId - Target user ID to find
+ * @returns {object|null} - User object if found, null otherwise
+ */
+function findUserById(users, targetId) {
+  let left = 0;
+  let right = users.length - 1;
+
+  while (left <= right) {
+    const mid = left + Math.floor((right - left) / 2);
+
+    if (users[mid].id === targetId) {
+      return users[mid];
+    }
+
+    if (users[mid].id < targetId) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return null;
+}
+
 // ============================================
 // Example Usage and Test Cases
 // ============================================
@@ -185,27 +212,6 @@ if (require.main === module) {
     { id: 407, name: 'David' },
     { id: 509, name: 'Eve' }
   ];
-
-  function findUserById(users, targetId) {
-    let left = 0;
-    let right = users.length - 1;
-
-    while (left <= right) {
-      const mid = left + Math.floor((right - left) / 2);
-
-      if (users[mid].id === targetId) {
-        return users[mid];
-      }
-
-      if (users[mid].id < targetId) {
-        left = mid + 1;
-      } else {
-        right = mid - 1;
-      }
-    }
-
-    return null;
-  }
 
   console.log('Users array:', users);
   console.log('Finding user with ID 407:', findUserById(users, 407));
