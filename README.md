@@ -13,7 +13,7 @@ A simple Elm-architecture application for testing sessions.
 ## Available Views
 
 - `/` - Home page with application information
-- Status display - Server status information (updated in real-time)
+- Application status - Status information (updated in real-time)
 - Time display - Current time (updated every second)
 
 ## Getting Started
@@ -47,7 +47,7 @@ The application will start on `http://localhost:3000` and open automatically in 
 
 Open your browser and navigate to `http://localhost:3000` to see:
 - The home page with available endpoint information
-- Real-time server status
+- Real-time application status
 - Real-time clock with ISO timestamp and millisecond timestamp
 
 ## Architecture

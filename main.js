@@ -28,27 +28,27 @@ function view(model) {
     const timestampMs = model.currentTime.getTime();
     
     app.innerHTML = `
-        <h1>Welcome to Testing Sessions Server</h1>
+        <h1>Welcome to Testing Sessions Application</h1>
         <p>This is a simple Elm-architecture application.</p>
         <p>Available endpoints:</p>
         <ul>
             <li><a href="#">/ - This home page</a></li>
-            <li><a href="#status">/api/status - Server status</a></li>
-            <li><a href="#time">/api/time - Current server time</a></li>
+            <li><a href="#status">/api/status - Application status</a></li>
+            <li><a href="#time">/api/time - Current time</a></li>
         </ul>
         <hr>
         
         <div class="status-info">
-            <h2>Server Status</h2>
+            <h2>Application Status</h2>
             <p><strong>Status:</strong> ${model.status}</p>
-            <p><strong>Message:</strong> Server is working correctly</p>
+            <p><strong>Message:</strong> Application is working correctly</p>
             <p><strong>Timestamp:</strong> ${timestamp}</p>
         </div>
         
         <hr>
         
         <div class="time-info">
-            <h2>Current Server Time</h2>
+            <h2>Current Time</h2>
             <p><strong>Time:</strong> ${timestamp}</p>
             <p><strong>Timestamp:</strong> ${timestampMs}</p>
         </div>

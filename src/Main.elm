@@ -71,13 +71,13 @@ subscriptions _ =
 view : Model -> Html Msg
 view model =
     div [ style "font-family" "Arial, sans-serif", style "padding" "20px" ]
-        [ h1 [] [ text "Welcome to Testing Sessions Server" ]
+        [ h1 [] [ text "Welcome to Testing Sessions Application" ]
         , p [] [ text "This is a simple Elm application." ]
         , p [] [ text "Available endpoints:" ]
         , ul []
             [ li [] [ a [ href "#" ] [ text "/ - This home page" ] ]
-            , li [] [ a [ href "#status" ] [ text "/api/status - Server status" ] ]
-            , li [] [ a [ href "#time" ] [ text "/api/time - Current server time" ] ]
+            , li [] [ a [ href "#status" ] [ text "/api/status - Application status" ] ]
+            , li [] [ a [ href "#time" ] [ text "/api/time - Current time" ] ]
             ]
         , hr [] []
         , viewStatus model
@@ -89,9 +89,9 @@ view model =
 viewStatus : Model -> Html Msg
 viewStatus model =
     div []
-        [ h2 [] [ text "Server Status" ]
+        [ h2 [] [ text "Application Status" ]
         , p [] [ text ("Status: " ++ model.status) ]
-        , p [] [ text "Message: Server is working correctly" ]
+        , p [] [ text "Message: Application is working correctly" ]
         , p [] [ text ("Timestamp: " ++ formatTime model.zone model.currentTime) ]
         ]
 
@@ -99,7 +99,7 @@ viewStatus model =
 viewTime : Model -> Html Msg
 viewTime model =
     div []
-        [ h2 [] [ text "Current Server Time" ]
+        [ h2 [] [ text "Current Time" ]
         , p [] [ text ("Time: " ++ formatTime model.zone model.currentTime) ]
         , p [] [ text ("Timestamp: " ++ String.fromInt (Time.posixToMillis model.currentTime)) ]
         ]
