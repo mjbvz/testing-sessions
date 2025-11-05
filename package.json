@@ -1,14 +1,22 @@
 {
   "name": "testing-sessions",
   "version": "1.0.0",
-  "description": "A simple Node.js server for testing sessions",
-  "main": "server.js",
+  "description": "A simple Elm-architecture application for testing sessions",
+  "main": "main.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
+    "start": "npx http-server -p 3000 -o",
+    "dev": "npx http-server -p 3000 -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["nodejs", "server", "testing"],
+  "keywords": [
+    "elm",
+    "elm-architecture",
+    "testing"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "elm": "^0.19.1-6",
+    "http-server": "^14.1.1"
+  }
 }
