@@ -1,21 +1,20 @@
 # testing-sessions
 
-A simple Node.js server for testing sessions.
+A simple Elm-architecture application for testing sessions.
 
 ## Features
 
-- Basic HTTP server with multiple endpoints
-- JSON API responses
-- HTML home page
-- CORS support
-- Graceful shutdown handling
-- Error handling with 404 responses
+- Elm Architecture pattern (Model-View-Update)
+- Real-time clock display
+- Status information display
+- Clean, functional UI
+- Single-page application
 
-## Available Endpoints
+## Available Views
 
-- `GET /` - Home page with server information
-- `GET /api/status` - Server status information
-- `GET /api/time` - Current server time
+- `/` - Home page with application information
+- Status display - Server status information (updated in real-time)
+- Time display - Current time (updated every second)
 
 ## Getting Started
 
@@ -27,42 +26,45 @@ A simple Node.js server for testing sessions.
 ### Installation
 
 1. Clone this repository
-2. Install dependencies (none required for basic functionality)
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Running the Server
+### Running the Application
 
 ```bash
-# Start the server
+# Start the application (opens in browser automatically)
 npm start
 
-# Or run directly
-node server.js
+# Or run the dev server
+npm run dev
 ```
 
-The server will start on `http://localhost:3000` by default. You can set a custom port using the `PORT` environment variable:
-
-```bash
-PORT=8080 npm start
-```
+The application will start on `http://localhost:3000` and open automatically in your browser.
 
 ### Testing
 
-You can test the server using curl or any HTTP client:
+Open your browser and navigate to `http://localhost:3000` to see:
+- The home page with available endpoint information
+- Real-time server status
+- Real-time clock with ISO timestamp and millisecond timestamp
 
-```bash
-# Test the home page
-curl http://localhost:3000/
+## Architecture
 
-# Test the status endpoint
-curl http://localhost:3000/api/status
+This application follows the Elm Architecture pattern:
 
-# Test the time endpoint
-curl http://localhost:3000/api/time
-```
+- **Model**: Immutable data structure representing application state
+- **View**: Pure functions that render HTML based on the model
+- **Update**: Pure functions that transform the model based on messages
 
-## Server Features
+The application updates every second to display the current time, demonstrating reactive updates in the Elm architecture style.
 
-- **CORS Enabled**: The server includes CORS headers for cross-origin requests
-- **Graceful Shutdown**: Handles SIGTERM and SIGINT signals for clean shutdown
-- **JSON Responses**: API endpoints return properly formatted JSON
-- **Error Handling**: Returns 404 for unknown routes with helpful error messages
+## Implementation Details
+
+Due to network restrictions preventing access to the Elm package registry, this implementation uses JavaScript following the Elm Architecture pattern. It provides the same functionality and structure as a pure Elm application would, including:
+
+- Immutable state updates
+- Message-based state changes
+- Pure view functions
+- Time subscriptions
