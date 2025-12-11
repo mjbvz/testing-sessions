@@ -1,0 +1,4 @@
+{
+  "version": 1,
+  "issueQuery": "is:open assignee:@me milestone:\"September 2025\""
+}
